@@ -5,9 +5,8 @@ createApp(App).mount('#app')
 
 // var a = 1;
 
-const func = () => 
-{
-    console.log(11)
-}
+// const func = () => {
+//   console.log(11)
+// }
 
-func();
+// func()
