@@ -14,16 +14,17 @@ import 'virtual:svg-icons-register'
 // 公共 scss 文件
 import '@/styles/index.scss'
 
-import axios from 'axios'
+// 测试mock数据
+// import axios from 'axios'
 
-axios({
-  url: '/dev-api/user/login',
-  method: 'post',
-  data: {
-    username: 'admin',
-    password: '111111',
-  },
-})
+// axios({
+//   url: '/dev-api/user/login',
+//   method: 'post',
+//   data: {
+//     username: 'admin',
+//     password: '111111',
+//   },
+// })
 
 const app = createApp(App)
 

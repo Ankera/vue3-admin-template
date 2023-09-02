@@ -49,6 +49,9 @@ module.exports = {
    * "error" 或 2  ==>  规则作为一个错误（代码不能执行，界面报错）
    */
   rules: {
+    indent: 'off', // 关闭缩进检查
+    'max-len': ['error', { code: 500 }],
+
     // eslint（https://eslint.bootcss.com/docs/rules/）
     'no-var': 'error', // 要求使用 let 或者 const， 采用 var 报错
     'no-multiple-empty-lines': ['warn', { max: 1 }], // 不允许多个空行

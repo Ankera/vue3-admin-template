@@ -12,12 +12,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
+import { reqLogin } from '@/api/user'
 
-const num = ref(0)
-
-console.log(num.value)
+onMounted(() => {
+  reqLogin({
+    username: 'admin',
+    password: '111111',
+  }).then((res) => {
+    console.log('res====', res)
+  })
+})
 </script>
 
 <style scoped lang="scss">
