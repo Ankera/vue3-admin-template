@@ -8,10 +8,12 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
+import { ref } from 'vue'
 
+const num = ref(0)
+
+console.log(num.value)
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
