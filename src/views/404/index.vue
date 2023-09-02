@@ -1,11 +1,9 @@
 <!-- 作者: 余亚勇 -->
-<!-- 创建时间: 2023-09-03 00:02:08 -->
+<!-- 创建时间: 2023-09-03 00:03:44 -->
 <!-- 模块主要作用:  -->
 
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <div>我是一级路由登录 === 404</div>
 </template>
 
 <script setup lang="ts"></script>

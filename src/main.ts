@@ -14,6 +14,8 @@ import 'virtual:svg-icons-register'
 // 公共 scss 文件
 import '@/styles/index.scss'
 
+import router from '@/router/index'
+
 // 测试mock数据
 // import axios from 'axios'
 
@@ -33,7 +35,11 @@ app.use(ElementPlus, {
   locale: zhCn,
 })
 
+// 注册全局组件
 app.use(globalComponent)
+
+// 注册路由
+app.use(router)
 
 app.mount('#app')
 
