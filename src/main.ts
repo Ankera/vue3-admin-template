@@ -10,4 +10,4 @@ const func = () =>
     console.log(11)
 }
 
-func()
+func();
