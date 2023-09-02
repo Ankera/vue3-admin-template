@@ -7,14 +7,13 @@
     <h1>hello</h1>
     <el-button type="primary" :icon="Edit">Primary</el-button>
 
-    <Test />
+    <svg-icon name="floor" color="red"></svg-icon>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
-import Test from '@/components/Test.vue'
 
 const num = ref(0)
 
