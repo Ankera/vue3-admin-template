@@ -11,6 +11,9 @@ import globalComponent from './components/index'
 // svg插件需要配置代码
 import 'virtual:svg-icons-register'
 
+// 公共 scss 文件
+import '@/styles/index.scss'
+
 const app = createApp(App)
 
 // 配置国际化
@@ -22,4 +25,4 @@ app.use(globalComponent)
 
 app.mount('#app')
 
-console.log(111, import.meta.env)
+// console.log(111, import.meta.env)

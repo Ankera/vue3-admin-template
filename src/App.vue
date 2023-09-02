@@ -4,7 +4,7 @@
 
 <template>
   <div class="box">
-    <h1>hello</h1>
+    <h1>hello 1</h1>
     <el-button type="primary" :icon="Edit">Primary</el-button>
 
     <svg-icon name="floor" color="red"></svg-icon>
@@ -23,5 +23,11 @@ console.log(num.value)
 <style scoped lang="scss">
 .box {
   width: 100px;
+  h1 {
+    color: red;
+    width: $base-menu-width;
+    height: $base-menu-width;
+    background-color: #f2f2f2;
+  }
 }
 </style>
