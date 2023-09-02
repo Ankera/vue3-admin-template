@@ -104,7 +104,7 @@ const login = async () => {
         title: `Hi, ${getTime()}好`,
       })
     }
-  } catch (error) {
+  } catch (error: any) {
     loading.value = false
     ElNotification({
       type: 'error',
@@ -113,7 +113,7 @@ const login = async () => {
   }
 }
 
-const validatorUsername = (rule: any, value: any, callback: any) => {
+const validatorUsername = (_: unknown, value: any, callback: any) => {
   if (value.length === 0) {
     callback(new Error('请输入账号'))
   } else {
@@ -121,7 +121,7 @@ const validatorUsername = (rule: any, value: any, callback: any) => {
   }
 }
 
-const validatorPassword = (rule: any, value: any, callback: any) => {
+const validatorPassword = (_: unknown, value: any, callback: any) => {
   if (value.length === 0) {
     callback(new Error('请输入密码'))
   } else if (value.length < 6 || value.length > 16) {
@@ -131,7 +131,7 @@ const validatorPassword = (rule: any, value: any, callback: any) => {
   }
 }
 
-const validatorVerifyCode = (rule: any, value: any, callback: any) => {
+const validatorVerifyCode = (_: unknown, value: any, callback: any) => {
   console.log(value, identifyCode.value)
 
   if (value.length === 0) {
