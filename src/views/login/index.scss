@@ -1,0 +1,34 @@
+.login_container {
+  width: 100%;
+  height: 100vh;
+  background: url('@/assets/images/background.jpg') no-repeat;
+  background-size: cover;
+  position: fixed;
+  .login_form {
+    position: relative;
+    width: 55%;
+    top: 25vh;
+    left: 10vw;
+    padding: 10px;
+    background: transparent;
+    h1 {
+      background: linear-gradient(to right, blue, rgb(35, 60, 70));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 40px;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 40px;
+      margin-top: -10px;
+    }
+    .login_btn {
+      width: 100%;
+    }
+  }
+}
+.el-card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+:deep(.el-input-group__append, .el-input-group__prepend) {
+  padding: 0;
+}

@@ -16,6 +16,8 @@ import '@/styles/index.scss'
 
 import router from '@/router/index'
 
+import pinia from '@/store/index'
+
 // 测试mock数据
 // import axios from 'axios'
 
@@ -40,6 +42,9 @@ app.use(globalComponent)
 
 // 注册路由
 app.use(router)
+
+// 安装仓库
+app.use(pinia)
 
 app.mount('#app')
 

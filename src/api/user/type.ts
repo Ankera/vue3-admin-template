@@ -5,8 +5,9 @@ export interface loginForm {
   password: string
 }
 
-interface dataType {
-  token: string
+interface dataType extends Record<string, any> {
+  token?: string
+  message?: string
 }
 
 // //定义全部接口返回数据都拥有ts类型
