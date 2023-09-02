@@ -10,4 +10,9 @@ export default defineConfig({
       '@': path.resolve('./src'),
     },
   },
+  build: {
+    rollupOptions: {
+      external: ['element-plus', 'vue'], // 将 element-plus, vue 标记为外部依赖
+    },
+  },
 })

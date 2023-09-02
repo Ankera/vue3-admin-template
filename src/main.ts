@@ -14,3 +14,5 @@ app.use(ElementPlus, {
 })
 
 app.mount('#app')
+
+console.log(111, import.meta.env)
