@@ -7,6 +7,14 @@
     <!-- 左侧菜单 -->
     <div class="layout_slider">
       <Logo />
+
+      <!-- 展示菜单 -->
+      <el-scrollbar class="scrollbar">
+        <el-menu background-color="#001529" text-color="#ffffff">
+          <!-- 动态菜单 -->
+          <Menu :menuList="userStore.menuRoutes"></Menu>
+        </el-menu>
+      </el-scrollbar>
     </div>
 
     <!-- 顶部导航 -->
@@ -21,6 +29,10 @@
 
 <script setup lang="ts">
 import Logo from './logo/index.vue'
+import Menu from './menu/index.vue'
+import useUserStore from '@/store/modules/user'
+
+const userStore = useUserStore()
 </script>
 
 <style lang="scss" scoped>
@@ -31,6 +43,15 @@ import Logo from './logo/index.vue'
     width: $base-menu-width;
     height: 100vh;
     background-color: $base-menu-background;
+    .scrollbar {
+      width: 100%;
+      height: calc(100vh - $base-menu-logo-height);
+      color: #ffffff;
+      // 右侧边框
+      .el-menu {
+        border-right: none;
+      }
+    }
   }
   .layout_tabbar {
     width: calc(100% - $base-menu-width);
