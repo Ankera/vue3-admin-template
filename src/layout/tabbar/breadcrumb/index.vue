@@ -5,7 +5,7 @@
 <template>
   <!-- 顶部左侧静态 -->
   <el-icon style="margin-right: 10px" @click="changeIcon">
-    <component :is="LayOutSettingStore.isCollapse ? Expand : Fold"></component>
+    <component :is="layOutSettingStore.isCollapse ? Expand : Fold"></component>
   </el-icon>
 
   <!-- 左侧面包屑 -->
@@ -39,11 +39,9 @@ import { useRoute } from 'vue-router'
 
 const $route = useRoute()
 
-console.log('$route', $route)
-
-let LayOutSettingStore = useLayOutSettingStore()
+let layOutSettingStore = useLayOutSettingStore()
 const changeIcon = () => {
-  LayOutSettingStore.isCollapse = !LayOutSettingStore.isCollapse
+  layOutSettingStore.isCollapse = !layOutSettingStore.isCollapse
 }
 </script>
 

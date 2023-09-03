@@ -3,8 +3,20 @@
 <!-- 模块主要作用:  -->
 
 <template>
-  <el-button size="small" icon="Refresh" circle></el-button>
-  <el-button size="small" icon="FullScreen" circle></el-button>
+  <el-button
+    size="small"
+    icon="Refresh"
+    circle
+    @click="updateRefsh"
+  ></el-button>
+
+  <el-button
+    size="small"
+    icon="FullScreen"
+    circle
+    @click="fullScreen"
+  ></el-button>
+
   <el-button size="small" icon="Setting" circle></el-button>
 
   <img
@@ -28,7 +40,22 @@
   </el-dropdown>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import useLayOutSettingStore from '@/store/modules/setting'
+import handleFullScreen from '@/utils/fullScreen'
+
+// 刷新单个组件
+let layOutSettingStore = useLayOutSettingStore()
+const updateRefsh = () => {
+  layOutSettingStore.refsh = !layOutSettingStore.refsh
+}
+
+// 全屏事件
+const fullScreen = () => {
+  // 用来判断是否是全屏
+  handleFullScreen()
+}
+</script>
 
 <script lang="ts">
 export default {
