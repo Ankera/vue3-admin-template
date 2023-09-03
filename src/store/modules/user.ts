@@ -37,6 +37,14 @@ const useUserStore = defineStore('User', {
         this.avatar = result.data.checkUser.avatar
       }
     },
+
+    async userLogout() {
+      // 退出登录接口，标识本地token无效， 服务器处理
+      this.token = ''
+      this.username = ''
+      this.avatar = ''
+      REMOVE_TOKEN()
+    },
   },
   getters: {},
 })

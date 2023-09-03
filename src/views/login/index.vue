@@ -65,12 +65,14 @@
 <script setup lang="ts">
 import { User, Lock, Warning } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { getTime } from '@/utils/time'
 import { ElNotification } from 'element-plus'
 import useUserStore from '@/store/modules/user'
 // 获取路由
 const $router = useRouter()
+
+const $route = useRoute()
 
 let loading = ref(false)
 
@@ -96,7 +98,14 @@ const login = async () => {
 
     console.log('result ===', result)
     if (result === 'ok') {
-      $router.push('/')
+      // 如果退出登录时，判断是否回到原地址
+      const redirect = $route.query.redirect
+      if (redirect) {
+        $router.push(redirect)
+      } else {
+        $router.push('/')
+      }
+
       loading.value = false
       ElNotification({
         type: 'success',
