@@ -70,8 +70,8 @@ const fullScreen = () => {
  * ②仓库中关于用户数据清空（username、token、avator）
  * ③跳转到登录页
  */
-const logout = () => {
-  userStore.userLogout()
+const logout = async () => {
+  await userStore.userLogout()
 
   $router.push({
     path: '/login',

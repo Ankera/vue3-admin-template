@@ -5,10 +5,8 @@
 <template>
   <div class="layout_container">
     <!-- 左侧菜单 -->
-    <div
-      class="layout_slider"
-      :class="{ isCollapse: LayOutSettingStore.isCollapse ? true : false }"
-    >
+    <!-- 取消过度动画 -->
+    <div class="layout_slider">
       <Logo />
 
       <!-- 展示菜单 -->

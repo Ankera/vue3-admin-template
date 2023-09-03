@@ -84,7 +84,7 @@ let loginForms = ref()
 
 const loginForm = reactive({
   username: 'admin',
-  password: '111111',
+  password: 'atguigu123',
   verifyCode: '1234',
 })
 
@@ -94,25 +94,18 @@ const login = async () => {
 
   loading.value = true
   try {
-    const result = await userStore.userLogin(loginForm)
+    await userStore.userLogin(loginForm)
 
-    console.log('result ===', result)
-    if (result === 'ok') {
-      // 如果退出登录时，判断是否回到原地址
-      const redirect = $route.query.redirect
-      if (redirect) {
-        $router.push(redirect)
-      } else {
-        $router.push('/')
-      }
+    // 如果退出登录时，判断是否回到原地址
+    const redirect = $route.query.redirect
+    $router.push({ path: redirect || '/' })
 
-      loading.value = false
-      ElNotification({
-        type: 'success',
-        message: '登录成功',
-        title: `Hi, ${getTime()}好`,
-      })
-    }
+    loading.value = false
+    ElNotification({
+      type: 'success',
+      message: '登录成功',
+      title: `Hi, ${getTime()}好`,
+    })
   } catch (error: any) {
     loading.value = false
     ElNotification({
@@ -141,8 +134,6 @@ const validatorPassword = (_: unknown, value: any, callback: any) => {
 }
 
 const validatorVerifyCode = (_: unknown, value: any, callback: any) => {
-  console.log(value, identifyCode.value)
-
   if (value.length === 0) {
     callback(new Error('请输入验证码'))
   } else if (value.length < 4) {

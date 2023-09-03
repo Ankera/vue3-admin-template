@@ -50,3 +50,12 @@ app.use(pinia)
 app.mount('#app')
 
 // console.log(111, import.meta.env)
+
+/**
+ * 官方接口地址
+ * http://sph-api.atguigu.cn/
+ *
+ * swagger 文档地址
+ * http://39.98.123.211:8510/swagger-ui.html
+ * http://139.198.104.58:8212/swagger-ui.html
+ */
