@@ -49,6 +49,9 @@ module.exports = {
    * "error" 或 2  ==>  规则作为一个错误（代码不能执行，界面报错）
    */
   rules: {
+    // 禁用 eslint-plugin-vue 中的 valid-attribute-name 规则
+    'vue/valid-attribute-name': 'off',
+
     indent: 'off', // 关闭缩进检查
     'max-len': ['error', { code: 500 }],
 

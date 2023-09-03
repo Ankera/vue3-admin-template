@@ -105,7 +105,6 @@ export default {
   .layout_main {
     width: calc(100% - $base-menu-width);
     height: calc(100vh - $base-tabbar-height);
-    background-color: yellowgreen;
     position: absolute;
     top: $base-tabbar-height;
     left: $base-menu-width;

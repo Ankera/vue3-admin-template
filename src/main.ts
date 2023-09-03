@@ -58,4 +58,10 @@ app.mount('#app')
  * swagger 文档地址
  * http://39.98.123.211:8510/swagger-ui.html
  * http://139.198.104.58:8212/swagger-ui.html
+ *
+ * demo 地址
+ * http://8.222.176.28/#/acl/user
+ *
+ * 源码地址
+ * https://github.com/huccct/vue-admin/blob/main/src/api/product/trademark/index.ts
  */
