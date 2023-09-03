@@ -26,6 +26,7 @@ export interface loginResponseData {
 interface userInfo extends Record<string, any> {
   userId: string
   avatar: string
+  username: string
 }
 
 interface user {
