@@ -9,17 +9,37 @@
   </el-icon>
 
   <!-- 左侧面包屑 -->
-  <el-breadcrumb :separator-icon="ArrowRight">
-    <el-breadcrumb-item>权限管理</el-breadcrumb-item>
-    <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+  <el-breadcrumb separator-icon="ArrowRight">
+    <!-- 动态展示面包屑 -->
+    <el-breadcrumb-item
+      v-for="(item, index) in $route.matched"
+      :key="index"
+      v-show="item.meta.title"
+      :to="item.path"
+    >
+      <!-- 图标 -->
+      <el-icon v-if="!!item.meta" style="vertical-align: middle">
+        <component :is="item.meta.icon"></component>
+      </el-icon>
+
+      <!-- 面包屑展示匹配到的路由标题 -->
+      <span style="margin: 0 5px; vertical-align: middle">
+        {{ item?.meta?.title }}
+      </span>
+    </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
 <script setup lang="ts">
-import { ArrowRight, Fold, Expand } from '@element-plus/icons-vue'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-expect-error
+import { Fold, Expand } from '@element-plus/icons-vue'
+
 import useLayOutSettingStore from '@/store/modules/setting'
+
+import { useRoute } from 'vue-router'
+
+const $route = useRoute()
+
+console.log('$route', $route)
 
 let LayOutSettingStore = useLayOutSettingStore()
 const changeIcon = () => {

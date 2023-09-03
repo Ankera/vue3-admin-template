@@ -116,9 +116,9 @@ export const constantRoutes = [
     name: 'layout',
     component: () => import('@/layout/index.vue'),
     meta: {
-      title: 'layout',
+      title: '',
       hidden: false,
-      icon: 'Avatar',
+      icon: '',
     },
     // 当访问 / 的时候，直接重定向到 /home 路由
     redirect: '/home',
