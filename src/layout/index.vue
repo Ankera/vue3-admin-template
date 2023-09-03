@@ -22,7 +22,8 @@
 
     <!-- 内容展示区域 -->
     <div class="layout_main">
-      <p v-for="(item, i) in 1000" :key="i">我是一个锻炼{{ item }}</p>
+      <!-- <router-view></router-view> -->
+      <Main></Main>
     </div>
   </div>
 </template>
@@ -30,6 +31,7 @@
 <script setup lang="ts">
 import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
+import Main from './main/index.vue'
 import useUserStore from '@/store/modules/user'
 
 const userStore = useUserStore()

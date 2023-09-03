@@ -25,6 +25,7 @@
       <el-menu-item
         v-if="!item.children[0].meta.hidden"
         :index="item.children[0].path"
+        @click="goRoute"
       >
         <el-icon>
           <component
@@ -64,11 +65,15 @@
 //   }
 // })
 
+import { useRouter } from 'vue-router'
+
+const $router = useRouter()
+
 defineProps(['menuList'])
 
 // 点击菜单的回调
 const goRoute = (vc: any) => {
-  console.log('vc', vc)
+  $router.push(vc.index)
 }
 </script>
 
