@@ -64,4 +64,6 @@ app.mount('#app')
  *
  * 源码地址
  * https://github.com/huccct/vue-admin/blob/main/src/api/product/trademark/index.ts
+ *
+ * 059 - 101 未看，先看权限相关的课程
  */
