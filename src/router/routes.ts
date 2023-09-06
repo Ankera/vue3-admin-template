@@ -146,7 +146,7 @@ export const constantRoutes = [
     },
   },
   // 权限管理 和 商品管理 集合
-  ...asyncRoute,
+  // ...asyncRoute,
   {
     path: '/404',
     name: '404',
@@ -156,5 +156,4 @@ export const constantRoutes = [
       hidden: true,
     },
   },
-  anyRoute,
 ]

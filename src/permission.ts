@@ -36,6 +36,10 @@ router.beforeEach(async (to: any, _: unknown, next: any) => {
       } else {
         try {
           await userStore.userInfo()
+          /**
+           * 不能写成 next()
+           * 有 to 表示获取到路由，如果是异步路由有可能延迟，只有等拿到 to 在二次跳转，100%正确
+           */
           next({ ...to })
         } catch (error) {
           await userStore.userLogout()

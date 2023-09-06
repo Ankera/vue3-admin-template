@@ -7,7 +7,40 @@ import type {
   UserInfoResponseData,
 } from '@/api/user/type'
 import type { UserState } from './types/type'
-import { constantRoutes } from '@/router/routes'
+import router from '@/router'
+import { constantRoutes, asyncRoute, anyRoute } from '@/router/routes'
+
+function deepClone(params: any) {
+  // 如果数组类型数据
+  if (Array.isArray(params)) {
+    const newnew: any = []
+    for (let i = 0; i < params.length; i++) {
+      newnew[i] = deepClone(params[i]) // 递归调用克隆
+    }
+    return newnew // 克隆完以后，再返回出结果
+  }
+  // 如果是对象类型数据
+  if (Object.prototype.toString.call(params) === '[object Object]') {
+    const newnew: any = []
+    for (const key in params) {
+      newnew[key] = deepClone(params[key]) // 递归调用克隆
+    }
+    return newnew // 克隆完以后，再返回出结果
+  }
+  // 如果是普通数据类型
+  return params
+}
+
+function filterAsyncRoute(asyncRoute: any, routes: any) {
+  return asyncRoute.filter((item: any) => {
+    if (routes.includes(item.name)) {
+      if (item.children && item.children.length > 0) {
+        item.children = filterAsyncRoute(item.children, routes)
+      }
+      return true
+    }
+  })
+}
 
 const useUserStore = defineStore('User', {
   state: (): UserState => {
@@ -17,6 +50,7 @@ const useUserStore = defineStore('User', {
       menuRoutes: constantRoutes,
       username: '',
       avatar: '',
+      buttons: [], // 按钮权限
     }
   },
   // 异步或者逻辑的地方
@@ -39,6 +73,17 @@ const useUserStore = defineStore('User', {
       if (result.code === 200) {
         this.username = result.data.name
         this.avatar = result.data.avatar
+        this.buttons = result.data.buttons
+        const userAsyncRoute: any = filterAsyncRoute(
+          deepClone(asyncRoute),
+          result.data.routes,
+        )
+        // 路由集合
+        this.menuRoutes = [...constantRoutes, ...userAsyncRoute, anyRoute]
+        ;[...userAsyncRoute, anyRoute].forEach((route: any) => {
+          router.addRoute(route)
+        })
+
         return 'ok'
       } else {
         return Promise.reject(new Error(result.message))

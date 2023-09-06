@@ -16,6 +16,8 @@ import router from '@/router/index'
 
 import pinia from '@/store/index'
 
+import { isHasButton } from '@/directive/has'
+
 // 路由守卫
 import './permission'
 
@@ -46,6 +48,9 @@ app.use(router)
 
 // 安装仓库
 app.use(pinia)
+
+// 注册指令
+isHasButton(app)
 
 app.mount('#app')
 

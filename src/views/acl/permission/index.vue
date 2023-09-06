@@ -17,6 +17,7 @@
           size="small"
           :disabled="row.level === 4 ? true : false"
           @click="addPermission(row)"
+          v-has="`btn.Permission.add`"
         >
           {{ row.level === 3 ? '添加功能' : '添加菜单' }}
         </el-button>
@@ -25,6 +26,7 @@
           size="small"
           :disabled="row.level === 1 ? true : false"
           @click="updatePermission(row)"
+          v-has="`btn.Permission.update`"
         >
           编辑
         </el-button>
@@ -38,6 +40,7 @@
               type="danger"
               size="small"
               :disabled="row.level === 1 ? true : false"
+              v-has="`btn.Permission.remove`"
             >
               删除
             </el-button>

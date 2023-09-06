@@ -23,7 +23,12 @@
   </el-card>
 
   <el-card style="margin: 10px 0">
-    <el-button type="primary" size="default" @click="addUser">
+    <el-button
+      type="primary"
+      size="default"
+      @click="addUser"
+      v-has="`btn.User.add`"
+    >
       添加用户
     </el-button>
     <el-button
@@ -76,7 +81,12 @@
       ></el-table-column>
       <el-table-column label="操作" width="300px" align="center">
         <template #="{ row }">
-          <el-button size="small" icon="User" @click="setRole(row)">
+          <el-button
+            size="small"
+            icon="User"
+            @click="setRole(row)"
+            v-has="`btn.User.assgin`"
+          >
             分配角色
           </el-button>
           <el-button
@@ -84,6 +94,7 @@
             size="small"
             icon="Edit"
             @click="updateUser(row)"
+            v-has="`btn.User.update`"
           >
             编辑
           </el-button>
@@ -93,7 +104,12 @@
             @confirm="deleteUser(row.id)"
           >
             <template #reference>
-              <el-button type="danger" size="small" icon="Delete">
+              <el-button
+                type="danger"
+                size="small"
+                icon="Delete"
+                v-has="`btn.User.remove`"
+              >
                 删除
               </el-button>
             </template>
