@@ -5,6 +5,9 @@ import path from 'path'
 // 引入svg
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
+// 压缩
+import viteCompression from 'vite-plugin-compression'
+
 import { viteMockServe } from 'vite-plugin-mock'
 import commonjs from 'rollup-plugin-commonjs'
 import externalGlobals from 'rollup-plugin-external-globals'
@@ -32,6 +35,12 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       viteMockServe({
         // 保证开发阶段使用 mock 接口
         localEnabled: command === 'serve',
+      }),
+      // https://blog.csdn.net/Old_Soldier/article/details/127192862
+      viteCompression({
+        threshold: 100, // 对大于 1mb 的文件进行压缩
+        filter: /\.(js|css|html)?$/i, // 压缩文件格式
+        algorithm: 'gzip',
       }),
     ],
     resolve: {
