@@ -19,7 +19,7 @@ import pinia from '@/store/index'
 import { isHasButton } from '@/directive/has'
 
 // 路由守卫
-import './permission'
+// import './permission'
 
 // 测试mock数据
 // import axios from 'axios'

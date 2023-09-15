@@ -25,6 +25,7 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
+    "vue-demi": "^0.14.6",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
@@ -45,6 +46,8 @@
     "postcss": "^8.4.29",
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.7",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-external-globals": "^0.8.0",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "stylelint": "^15.10.3",
